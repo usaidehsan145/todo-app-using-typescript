@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List UI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
+</head>
+<body>
+    <div id="spinner" class="spinner" aria-live="polite"></div>
+    <div class="container">
+        <div class="clock-container">
+            <div class="clock" role="img" aria-label="Analog clock showing current time">
+                <div class="hand hour" id="hour-hand"></div>
+                <div class="hand minute" id="minute-hand"></div>
+                <div class="hand second" id="second-hand"></div>
+                <div class="center"></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tabs" role="tablist">
+                <div class="tab active" data-content="day-content" role="tab" aria-selected="true">Day</div>
+                <div class="tab" data-content="week-content" role="tab">Week</div>
+                <div class="tab" data-content="month-content" role="tab">Month</div>
+                <div class="tab" data-content="year-content" role="tab">Year</div>
+            </div>
+            <div class="date-container">
+                <button id="prev-date" aria-label="Previous date">&lt;</button>
+                <div id="current-date" class="date" role="button" aria-label="Current date">
+                    <span id="day-name"></span>
+                    <span id="full-date"></span>
+                </div>
+                <button id="next-date" aria-label="Next date">&gt;</button>
+            </div>
+            <div class="task-input-container">
+                <span id="sort-icon" aria-hidden="true">≡</span>
+                <input type="text" id="task-input" placeholder="Add a task..." aria-label="Add a task">
+                <span id="time-icon" role="button" aria-label="Select time">⏰</span>
+            </div>
+            <div id="day-content" class="content active">
+                <div class="pinned-tasks"></div>
+                <hr class="divider">
+                <div class="task-list"></div>
+            </div>
+            <div id="week-content" class="content">
+                <div class="pinned-tasks"></div>
+                <hr class="divider">
+                <div class="task-list"></div>
+            </div>
+            <div id="month-content" class="content">
+                <div class="pinned-tasks"></div>
+                <hr class="divider">
+                <div class="task-list"></div>
+            </div>
+            <div id="year-content" class="content">
+                <div class="pinned-tasks"></div>
+                <hr class="divider">
+                <div class="task-list"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Completed Tasks</h2>
+            <div id="completed-content" class="content">
+                <div class="task-list"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Notifications</h2>
+            <div id="notification-content" class="content">
+                <div class="notification-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+body {
+    background-color: #FF4081;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: none;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #333;
+    border-radius: 10px;
+    width: 350px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    margin-top: 20px;
+    position: relative;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.tab.active {
+    color: white;
+    border-bottom: 2px solid #FF4081;
+}
+
+.date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date-container button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+.date-container .date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+#day-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#full-date {
+    font-size: 1rem;
+}
+
+.task-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+#sort-icon {
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2rem;
+}
+
+#time-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.pinned-tasks {
+    margin-bottom: 20px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.pin-icon {
+    margin-right: 10px;
+    color: #FF4081;
+    display: none; /* Hidden by default */
+}
+
+.task.pinned .pin-icon {
+    display: inline; /* Show only for pinned tasks */
+}
+
+.task-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.task-text {
+    font-size: 1rem;
+}
+
+.task-subtext {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.ellipsis-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #444;
+    border: 1px solid #555;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #888;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #555;
+}
+
+.divider {
+    border: 1px solid #555;
+    margin: 20px 0;
+}
+
+.task-list .task {
+    margin-bottom: 10px;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+.task input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.task input[type="checkbox"]:checked {
+    background-color: #333;
+}
+
+.task input[type="checkbox"]:checked::before {
+    content: '✔';
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: -2px;
+    left: 2px;
+}
+
+#completed-content, #notification-content {
+    display: block; /* Ensure completed content is always visible */
+}
+
+.clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin-right: 10px; /* Adjust margin to separate from cards */
+    margin-top: 50px;
+}
+
+.clock {
+    width: 100%;
+    height: 100%;
+    border: 5px solid black;
+    border-radius: 100%;
+    position: relative;
+    background-color: #333;
+}
+
+.hand {
+    width: 50%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.hour {
+    height: 6px;
+}
+
+.minute {
+    height: 4px;
+}
+
+.second {
+    height: 2px;
+    background: red;
+}
+
+.center {
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notification-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .task-input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #task-input {
+        width: calc(100% - 40px);
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #FF4081;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
